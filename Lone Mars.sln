@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C# Express 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lone Mars", "Lone Mars.csproj", "{20F1FABA-DD51-4BE9-8440-683E9879ABF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20F1FABA-DD51-4BE9-8440-683E9879ABF4}.Debug|x86.ActiveCfg = Debug|x86
+		{20F1FABA-DD51-4BE9-8440-683E9879ABF4}.Debug|x86.Build.0 = Debug|x86
+		{20F1FABA-DD51-4BE9-8440-683E9879ABF4}.Release|x86.ActiveCfg = Release|x86
+		{20F1FABA-DD51-4BE9-8440-683E9879ABF4}.Release|x86.Build.0 = Release|x86
+		{9BE8E53C-088B-4983-91DA-3E6E153DBE4D}.Debug|x86.ActiveCfg = Debug|x86
+		{9BE8E53C-088B-4983-91DA-3E6E153DBE4D}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
