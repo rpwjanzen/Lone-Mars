@@ -24,6 +24,12 @@ namespace Lone_Mars {
             Y = y;
         }
 
+        public FInt Length() {
+            var dx = X * X;
+            var dy = Y * Y;
+            return FInt.Sqrt(dx + dy);
+        }
+
         public FInt LengthSquared() {
             FInt.Multiply(ref X, ref X, out scratch1);
             FInt.Multiply(ref Y, ref Y, out scratch2);
@@ -44,6 +50,15 @@ namespace Lone_Mars {
 
         public static PVector2 operator +(PVector2 a, PVector2 b) {
             return new PVector2(a.X + b.X, a.Y + b.Y);
+        }
+
+        public static void Limit(ref PVector2 val, FInt maxLength) {
+            var l = val.Length();
+            if (l > maxLength) {
+                var ratio = maxLength / l;
+                val.X *= ratio;
+                val.Y *= ratio;
+            }
         }
 
         public static void Add(ref PVector2 a, ref PVector2 b, out PVector2 c) {

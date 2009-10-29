@@ -269,6 +269,16 @@ namespace Lone_Mars {
             return this.RawValue.ToString();
         }
 
+        public static FInt Clamp(FInt val, FInt min, FInt max) {
+            if (val < min) {
+                return min;
+            } else if (val > max) {
+                return max;
+            } else {
+                return val;
+            }
+        }
+
         #region PI, DoublePI
         public static FInt PI = new FInt(12868, false); //PI x 2^12
         public static FInt TwoPIF = PI * 2; //radian equivalent of 260 degrees
