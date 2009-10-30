@@ -1,38 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 
 namespace Lone_Mars {
     class Flock {
         public List<Boid> Boids;
-        Random random;
-        FInt MaxVelocity = (FInt)3;
+        
+        protected FInt MaxVelocity = (FInt)3;
+
+        protected Random Random;
 
         public Flock(Random r, int numBoids) {
-            random = r;
+            Random = r;
             Boids = new List<Boid>(numBoids);
             for (int i = 0; i < numBoids; i++) {
                 Boids.Add(CreateBoid());
             }
         }
 
-        Boid CreateBoid() {
-            var direction = MathHelper.Lerp(0, MathHelper.TwoPi, (float)random.NextDouble());
-            var speed = random.NextDouble() * MaxVelocity.ToDouble();
+        protected virtual Boid CreateBoid() {
+            var b = new Boid(PVector2.Zero, PVector2.Zero, Boids, FInt.ZeroF, Random);
+            ResetBoid(b);
+            return b;
+        }
+
+        protected virtual void ResetBoid(Boid b) {
+            var direction = MathHelper.Lerp(0, MathHelper.TwoPi, (float)Random.NextDouble());
+            var speed = Random.NextDouble() * MaxVelocity.ToDouble();
             var v = PVector2.Zero;
             v.X = new FInt((Math.Cos(direction) * speed));
             v.Y = new FInt((Math.Sin(direction) * speed));
 
-            var p = new PVector2((FInt)random.Next(-25, 25), (FInt)random.Next(-25, 25));
-            var b = new Boid(p, v, Boids, MaxVelocity);
-            return b;
+            var p = new PVector2((FInt)Random.Next(-400, 400), (FInt)Random.Next(-400, 400));
+            b.Position = p;
+            b.VelocityPerTick = v;
+            b.MaxVelocity = MaxVelocity;
+            b.Dead = false;
         }
 
         public virtual void Update() {
+            var velocities = new List<PVector2>(Boids.Count);
             foreach (var b in Boids) {
-                b.Update();
+                var vel = b.Update();
+                if (b.Dead) {
+                    ResetBoid(b);
+                    vel = b.VelocityPerTick;
+                }
+                velocities.Add(vel);
+            }
+
+            for (int i = 0; i < velocities.Count; i++) {
+                Boids[i].VelocityPerTick = velocities[i];
             }
         }
     }

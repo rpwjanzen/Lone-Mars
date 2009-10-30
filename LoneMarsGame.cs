@@ -6,7 +6,7 @@ namespace Lone_Mars {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Flock flock;
-        BoidVisualizer bv;
+        FlockVisualizer bv;
 
 
 
@@ -15,8 +15,8 @@ namespace Lone_Mars {
             Content.RootDirectory = "Content";
 
             var r = new Random(0);
-            flock = new Flock(r, 100);
-            bv = new BoidVisualizer(flock, new Vector2(400, 300), 1f);
+            flock = new Flock(r, 200);
+            bv = new FlockVisualizer(flock, new Vector2(400, 300), 0.7f);
         }
 
         protected override void LoadContent() {
