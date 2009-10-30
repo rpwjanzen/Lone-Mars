@@ -85,16 +85,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Boid.cs" />
-    <Compile Include="Bug.cs" />
-    <Compile Include="FlockVisualizer.cs" />
-    <Compile Include="FInt.cs" />
-    <Compile Include="Flock.cs" />
+    <Compile Include="Boids\Boid.cs" />
+    <Compile Include="Boids\Bug.cs" />
+    <Compile Include="Visual\FlockVisualizer.cs" />
+    <Compile Include="Lib\FInt.cs" />
+    <Compile Include="Flocks\Flock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="LoneMarsGame.cs" />
-    <Compile Include="PVector2.cs" />
-    <Compile Include="Swarm.cs" />
+    <Compile Include="Lib\PVector2.cs" />
+    <Compile Include="Flocks\Swarm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
