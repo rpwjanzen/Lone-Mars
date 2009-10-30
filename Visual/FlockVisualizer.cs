@@ -31,7 +31,7 @@ namespace Lone_Mars {
                 var rotation = FInt.Atan2(b.VelocityPerTick.Y, b.VelocityPerTick.X);
                 rotation += (FInt.PI / new FInt(2));
                 var pos = (b.Position.ToVector2() * scale + offset);
-                sb.Draw(texture, pos, null, Color.White, (float)rotation.ToDouble(), origin, 1f, SpriteEffects.None, 0f);
+                sb.Draw(texture, pos, null, Color.Orange, (float)rotation.ToDouble(), origin, 2f, SpriteEffects.None, 0f);
             }
         }
     }
