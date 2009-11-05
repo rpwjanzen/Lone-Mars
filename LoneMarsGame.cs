@@ -19,7 +19,8 @@ namespace Lone_Mars {
             Content.RootDirectory = "Content";
 
             var r = new Random(0);
-            flock = new Flock(r, 200);
+            //flock = new Flock(r, 200);
+            flock = new Swarm(r, 100);
             bv = new FlockVisualizer(flock, new Vector2(width / 2, height / 2), 1f);
         }
 

@@ -12,7 +12,7 @@ namespace Lone_Mars {
 
         protected override Boid CreateBoid() {
             var b = new Bug(PVector2.Zero, PVector2.Zero, Boids, Random);
-            return base.CreateBoid();
+            return b;
         }
     }
 }
